@@ -1,0 +1,3 @@
+# Project exclude paths
+/app-common/target/
+/consume-server-80/target/
