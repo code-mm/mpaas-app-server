@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ms</groupId>
-    <artifactId>app-server</artifactId>
+    <artifactId>mpaas-app-server</artifactId>
     <packaging>pom</packaging>
     <version>latest-SNAPSHOT</version>
     <modules>
