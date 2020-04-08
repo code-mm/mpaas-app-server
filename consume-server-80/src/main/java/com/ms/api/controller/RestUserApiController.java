@@ -30,6 +30,4 @@ public class RestUserApiController {
         log.info("registered", request);
         return Results.SUCCESS;
     }
-
-
 }

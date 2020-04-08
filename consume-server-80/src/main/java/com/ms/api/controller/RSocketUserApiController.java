@@ -23,5 +23,4 @@ public class RSocketUserApiController {
         log.info("Received request-response request: {}", request);
         return Result.builder().code(0).message("success").build();
     }
-
 }

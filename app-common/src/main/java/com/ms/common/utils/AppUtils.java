@@ -47,6 +47,7 @@ public class AppUtils {
      * <p>
      * 通过appId和内置关键词生成APP Secret
      * </P>
+     *
      * @author mazhq
      * @date 2019/8/27 16:32
      */
@@ -83,7 +84,7 @@ public class AppUtils {
     public static void main(String[] args) {
         String appId = getAppId();
         String appSecret = getAppSecret(appId);
-        System.out.println("appId: "+appId);
-        System.out.println("appSecret: "+appSecret);
+        System.out.println("appId: " + appId);
+        System.out.println("appSecret: " + appSecret);
     }
 }

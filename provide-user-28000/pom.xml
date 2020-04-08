@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>provide-login-28000</artifactId>
+    <artifactId>provide-user-28000</artifactId>
 
 
     <dependencies>
