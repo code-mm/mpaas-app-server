@@ -58,8 +58,23 @@ public class RestUserApiController {
         return result;
     }
 
-    @PostMapping(value = "registered")
-    public Result registered(@RequestBody RegisteredUserRequest request) {
+    // 用户名注册
+    @PostMapping(value = "registered-username")
+    public Result registeredUsername(@RequestBody RegisteredUserRequest request) {
+        log.info("registered", request);
+        return Results.SUCCESS;
+    }
+
+    // 手机注册请求验证码
+    @PostMapping(value = "registered-phonenumber-verificationcode")
+    public Result registeredPhoneNumberVerificationCode(@RequestBody RegisteredUserRequest request) {
+        log.info("registered", request);
+        return Results.SUCCESS;
+    }
+
+    // 手机注册
+    @PostMapping(value = "registered-phonenumber")
+    public Result registeredPhoneNumber(@RequestBody RegisteredUserRequest request) {
         log.info("registered", request);
         return Results.SUCCESS;
     }

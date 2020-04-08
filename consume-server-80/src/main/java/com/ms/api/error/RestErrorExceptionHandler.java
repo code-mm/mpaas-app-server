@@ -1,4 +1,4 @@
-package com.ms.api.controller;
+package com.ms.api.error;
 
 import com.ms.common.error.AppError;
 import com.ms.common.error.ErrorCodeParse;
@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,10 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 
+// 异常处理
 @RestControllerAdvice
 @Slf4j
-public class RestErrorController extends ResponseEntityExceptionHandler {
+public class RestErrorExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @Override
@@ -43,6 +45,18 @@ public class RestErrorController extends ResponseEntityExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiError handleAppRuntimeException(final AppRuntimeException ex) {
         String fieldStr = ex.getMessage();
+        AppError appError = ErrorCodeParse.getInstance().parse(fieldStr);
+        ApiError apiError = ApiError.builder().code(appError.getCode()).message("filure").error(appError.getCnErr()).build();
+        return apiError;
+    }
+
+
+    @ExceptionHandler(AuthenticationCredentialsNotFoundException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiError handleAuthenticationCredentialsNotFoundException(final AuthenticationCredentialsNotFoundException ex) {
+        String fieldStr = ex.getMessage();
+        log.info(fieldStr);
         AppError appError = ErrorCodeParse.getInstance().parse(fieldStr);
         ApiError apiError = ApiError.builder().code(appError.getCode()).message("filure").error(appError.getCnErr()).build();
         return apiError;

@@ -23,17 +23,29 @@ public class RestAppController {
         @NotBlank @NotEmpty @NotNull String app_id = request.getApp_id();
         @NotBlank @NotEmpty @NotNull String app_secret = request.getApp_secret();
         @NotBlank @NotEmpty @NotNull String os = request.getOs();
-
         Token token = new Token();
         token.setAccess_token("aaaaaaaaaaaaaaaaaaaaaa");
-
         Result<Token> result = new Result<>();
         result.setMessage("success");
         result.setCode(0);
         result.setData(token);
-
         return result;
-
     }
 
+    // 获取cdn
+    // cdn 里面包含多个url
+    @GetMapping(value = "cdn-base-url")
+    public Result baseUrl() {
+
+        return Result.builder().build();
+    }
+
+
+    // 获取设置信息
+    @GetMapping(value = "setting")
+    public Result setting() {
+
+
+        return Result.builder().build();
+    }
 }
