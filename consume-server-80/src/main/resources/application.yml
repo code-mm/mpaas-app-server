@@ -1,30 +1,11 @@
 server:
   port: 80
 
-ssl:
-  key-store:
-    classpath: ms.jks
-  key-store-password: ms2020
-  key-store-type: JKS
-  keyAlias: ms
-
 spring:
-  mvc:
-    throw-exception-if-no-handler-found: true
-  resources:
-    add-mappings: false
-
-  datasource:
-    url: jdbc:mysql://192.168.139.10:3306/oauth2?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
   main:
     lazy-initialization: true
   rsocket:
     server:
       port: 38000
-
 
 

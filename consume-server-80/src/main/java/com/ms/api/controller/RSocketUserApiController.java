@@ -14,7 +14,6 @@ public class RSocketUserApiController {
     Result login(LoginUserRequest request) {
         log.info("Received request-response request: {}", request);
 
-
          return Result.builder().code(0).message("success").build();
     }
 
