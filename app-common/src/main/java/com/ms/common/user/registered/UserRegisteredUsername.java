@@ -1,12 +1,11 @@
-package com.ms.common;
+package com.ms.common.user.registered;
 
 import lombok.Data;
 
 @Data
-public class User {
+public class UserRegisteredUsername {
 
     private String username;
     private String password;
-    private String userid;
 
 }

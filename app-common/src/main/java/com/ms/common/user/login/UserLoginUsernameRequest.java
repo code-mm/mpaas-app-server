@@ -1,16 +1,13 @@
-package com.ms.common;
+package com.ms.common.user.login;
 
+import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
-
-import java.io.Serializable;
-
 @Data
-public class LoginUserRequest implements Serializable {
+public class UserLoginUsernameRequest {
 
     @NotBlank(message = "username不能为空")
     @NotEmpty(message = "username不能为空")
