@@ -2,3 +2,4 @@
 /app-common/target/
 /consume-server-80/target/
 *.iml
+.idea

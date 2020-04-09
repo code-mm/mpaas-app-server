@@ -1,10 +1,14 @@
 package com.ms.api.controller;
 
 import com.ms.common.Result;
+import com.ms.common.base.BaseResponse;
+import com.ms.common.error.ErrorResponse;
 import com.ms.common.route.ROUTES;
+
 import com.ms.common.user.login.UserLoginPhonenumberRequest;
 import com.ms.common.user.login.UserLoginPhonenumberRequestVerifocationCodeRequestRequest;
 import com.ms.common.user.login.UserLoginUsernameRequest;
+import com.ms.common.user.login.UserLoginUsernameResponse;
 import com.ms.common.user.registered.UserRegisteredPhonenumberRequest;
 import com.ms.common.user.registered.UserRegisteredPhonenumberRequestVerifocationCodeRequest;
 import com.ms.common.user.token.UserTokenCheckRequest;
@@ -20,8 +24,16 @@ import javax.validation.Valid;
 public class RSocketUserApiController {
     // 用户名登录
     @MessageMapping(ROUTES.USER_LOGIN_USERNAME)
-    Result userLoginUsername(@Valid UserLoginUsernameRequest request) {
-        return Result.builder().code(0).message("success").build();
+    Result<BaseResponse> userLoginUsername(UserLoginUsernameRequest request) {
+        log.info("userLoginUsername : ", request);
+
+        Result<BaseResponse> userTokenResult = new Result<>();
+        userTokenResult.setCode(100);
+        //userTokenResult.setData(UserLoginUsernameResponse.builder().access_token("access_token").refresh_token("refresg_token").build());
+        userTokenResult.setData(ErrorResponse.builder().error("用户名错误").build());
+
+        userTokenResult.setMessage("success");
+        return userTokenResult;
     }
 
     // 短信登录 请求验证码

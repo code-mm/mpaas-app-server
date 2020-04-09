@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.ms</groupId>
             <artifactId>app-common</artifactId>
-            <version>${project.version}</version>
+            <version>latest</version>
         </dependency>
 
         <dependency>

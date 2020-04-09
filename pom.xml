@@ -10,8 +10,6 @@
     <version>latest-SNAPSHOT</version>
     <modules>
         <module>consume-server-80</module>
-        <module>provide-user-28000</module>
-        <module>app-common</module>
     </modules>
 
 
